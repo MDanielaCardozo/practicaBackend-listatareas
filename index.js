@@ -1,7 +1,8 @@
-import express from 'express';
+import express, { Router } from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
-import './src/database'
+import './src/database';
+import router from './src/routes/tareas.routes';
 //const express = require('express');
 
 //instancia de express
@@ -25,10 +26,4 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.static('./public'));
 
 //rutas
-app.get('/', (req, res)=>{
-    res.send('primera peticion get')
-})
-
-app.get('/prueba', (req, res)=>{
-    res.send('segunda peticion get')
-})
+app.use('/apitarea', router);
