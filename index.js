@@ -1,4 +1,6 @@
 import express from 'express';
+import morgan from 'morgan';
+import cors from 'cors';
 //const express = require('express');
 
 //instancia de express
@@ -13,6 +15,13 @@ app.listen(app.get('port'), ()=>{
 })
 
 //middlewares
+app.use(morgan('dev'));
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
+
+//cargar un archivo estatico
+app.use(express.static('./public'));
 
 //rutas
 app.get('/', (req, res)=>{
