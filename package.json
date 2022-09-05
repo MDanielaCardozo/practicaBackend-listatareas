@@ -1,0 +1,15 @@
+{
+  "name": "listatareas-backend",
+  "version": "1.0.0",
+  "description": "Practica de backend para el proyecto de la lista de tareas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Daniela Cardozo",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
