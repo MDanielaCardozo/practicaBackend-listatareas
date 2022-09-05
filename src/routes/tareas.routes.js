@@ -1,12 +1,18 @@
-import {Router} from 'express';
+import { Router } from 'express';
+import { borrarTarea, crearTarea, editarTarea, listarTareas, obtenerTarea } from '../controllers/tareas.controllers';
 
 const router = Router();
 
 router
-.route('/')
-.get((req, res)=>{
-    res.send('primera peticion get')
-})    
+.route('/tareas')
+.get(listarTareas)
+.post(crearTarea);
+
+router
+.route('/tareas/:id')
+.get(obtenerTarea)
+.put(editarTarea)
+.delete(borrarTarea);
 
 export default router;
 
