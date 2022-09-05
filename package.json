@@ -4,7 +4,8 @@
   "description": "Practica de backend para el proyecto de la lista de tareas",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node index.js"
+    "start": "babel-node index.js",
+    "dev":"nodemon --exec babel-node index.js"
   },
   "keywords": [],
   "author": "Daniela Cardozo",
