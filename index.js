@@ -9,6 +9,16 @@ app.set('port', process.env.PORT || 4000);
 
 //quiero que mi backend escuche el puerto
 app.listen(app.get('port'), ()=>{
-    console.log(`Mi backend esta en el puerto ${app.get('port')}`)
+    console.log(`Mi backend está en el puerto ${app.get('port')}`)
 })
 
+//middlewares
+
+//rutas
+app.get('/', (req, res)=>{
+    res.send('primera peticion get')
+})
+
+app.get('/prueba', (req, res)=>{
+    res.send('segunda peticion get')
+})
