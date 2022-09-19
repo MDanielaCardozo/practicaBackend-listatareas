@@ -1,5 +1,22 @@
-export const crearTarea = (req, res)=>{
-    res.send('crear una tarea en nuestra base de datos')
+import Tarea from "../models/tarea";
+
+export const crearTarea = async(req, res)=>{
+    try {
+        console.log(req.body)
+
+        const tareaNueva = new Tarea({
+            nombreTarea:req.body.nombreTarea
+        });
+        await tareaNueva.save()
+        res.status(201).json({
+            mensaje:'La tarea fue creada exitosamente'
+        })
+    } catch (error) {
+        console.log(error);
+        res.status(400).json({
+            mensaje:'La tarea fue enviada pero no pudo ser creado'
+        })
+    }
 }
 
 export const listarTareas = (req, res)=>{
