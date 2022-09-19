@@ -44,8 +44,18 @@ export const obtenerTarea = async(req, res)=>{
     }
 }
 
-export const editarTarea = (req, res)=>{
-    res.send('editamos tarea')
+export const editarTarea = async(req, res)=>{
+    try {
+        await Tarea.findByIdAndUpdate(req.params.id, req.body);
+        res.status(200).json({
+            mensaje: 'La tarea fue editada correctamente'
+        })
+    } catch (error) {
+        console.log(error);
+        res.status(400).json({
+            mensaje:'Error al intentar editar la tarea'
+        })
+    }
 }
 
 export const borrarTarea = (req, res)=>{
