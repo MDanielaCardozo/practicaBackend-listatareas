@@ -58,6 +58,16 @@ export const editarTarea = async(req, res)=>{
     }
 }
 
-export const borrarTarea = (req, res)=>{
-    res.send('borramos,eliminamos tarea')
+export const borrarTarea = async(req, res)=>{
+    try {
+        await Tarea.findByIdAndDelete(req.params.id);
+        res.status(200).json({
+            mensaje: 'La tarea fue eliminada correctamente'
+        })
+    } catch (error) {
+        console.log(error);
+        res.status(400).json({
+            mensaje:'Error al intentar borrar la tarea'
+        })
+    }
 }
